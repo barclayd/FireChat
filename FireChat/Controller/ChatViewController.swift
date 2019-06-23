@@ -32,7 +32,7 @@ class ChatViewController: UIViewController {
     }
     
     @IBAction func logOutPressed(_ sender: AnyObject) {
-        
+        performSegue(withIdentifier: "goToWelcome", sender: self)
     }
     
 
