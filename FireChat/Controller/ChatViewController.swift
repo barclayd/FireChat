@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     @IBOutlet var heightConstraint: NSLayoutConstraint!
@@ -22,7 +22,13 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        messageTableView.delegate = self
+        messageTableView.dataSource = self
         
+        // register custom cell
+        messageTableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "customMessageCell")
+        // configure table view
+        configureTableView()
     }
 
     @IBAction func sendPressed(_ sender: AnyObject) {
@@ -40,6 +46,31 @@ class ChatViewController: UIViewController {
         }
         
     }
+    
+    //MARK: Protocols
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customMessageCell", for: indexPath) as! CustomMessageCell
+        
+        let messageArray = ["Message 1", "Message 2", "Message 3"]
+        
+        cell.messageBody.text = messageArray[indexPath.row]
+        
+        return cell
+        
+    }
+    
+    // configure table view
+    func configureTableView() {
+        messageTableView.rowHeight = UITableView.automaticDimension
+        messageTableView.estimatedRowHeight = 120.0
+    }
+    
+    
     
 
 
