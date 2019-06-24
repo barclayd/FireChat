@@ -1,5 +1,5 @@
 //
-//  helper.swift
+//  helpers.swift
 //  FireChat
 //
 //  Created by Daniel Barclay on 23/06/2019.

@@ -27,8 +27,10 @@ class RegisterViewController: UIViewController {
         print(emailTextfield.text!.trim())
         
         if emailTextfield.text!.trim().count > 4 && passwordTextfield.text!.trim().count > 5 {
-
-            Auth.auth().createUser(withEmail: emailTextfield.text!, password: passwordTextfield.text!) { (user, error) in
+            
+            Auth.auth().createUser(withEmail: emailTextfield.text!, password: passwordTextfield.text!){
+                
+                (user, error) in
                 
                 if error != nil {
                     print(error as Any)

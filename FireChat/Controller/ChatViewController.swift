@@ -7,12 +7,11 @@
 //
 
 import UIKit
-
+import Firebase
 
 class ChatViewController: UIViewController {
     
     
-    // We've pre-linked the IBOutlets
     @IBOutlet var heightConstraint: NSLayoutConstraint!
     @IBOutlet var sendButton: UIButton!
     @IBOutlet var messageTextfield: UITextField!
@@ -32,7 +31,14 @@ class ChatViewController: UIViewController {
     }
     
     @IBAction func logOutPressed(_ sender: AnyObject) {
-        performSegue(withIdentifier: "goToWelcome", sender: self)
+        
+        do {
+            try Auth.auth().signOut()
+            navigationController?.popToRootViewController(animated: true)
+        } catch {
+            print("Error - there was a problem signing out")
+        }
+        
     }
     
 

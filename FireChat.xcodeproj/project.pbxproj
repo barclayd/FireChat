@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6577154F22C159E800615580 /* helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577154E22C159E800615580 /* helpers.swift */; };
 		658C9B4522BFD94800C08FD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658C9B4422BFD94800C08FD8 /* AppDelegate.swift */; };
 		658C9B4C22BFD94900C08FD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 658C9B4B22BFD94900C08FD8 /* Assets.xcassets */; };
 		658C9B4F22BFD94900C08FD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658C9B4D22BFD94900C08FD8 /* LaunchScreen.storyboard */; };
@@ -19,13 +20,13 @@
 		658C9B6E22BFDEA900C08FD8 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658C9B6B22BFDEA800C08FD8 /* MessageCell.xib */; };
 		658C9B7022BFDEA900C08FD8 /* CustomMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658C9B6D22BFDEA900C08FD8 /* CustomMessageCell.swift */; };
 		658C9B7322BFE79100C08FD8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 658C9B7222BFE79000C08FD8 /* GoogleService-Info.plist */; };
-		658C9B7622C00F2A00C08FD8 /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658C9B7522C00F2A00C08FD8 /* helper.swift */; };
 		EE2F36BF464D0035CA83A8E2 /* Pods_FireChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4814EA88B0CE9C2F9DA94653 /* Pods_FireChat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		07ECFBFC320465DC5C27B5FB /* Pods-FireChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireChat.release.xcconfig"; path = "Target Support Files/Pods-FireChat/Pods-FireChat.release.xcconfig"; sourceTree = "<group>"; };
 		4814EA88B0CE9C2F9DA94653 /* Pods_FireChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6577154E22C159E800615580 /* helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
 		658C9B4122BFD94800C08FD8 /* FireChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		658C9B4422BFD94800C08FD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		658C9B4B22BFD94900C08FD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,7 +41,6 @@
 		658C9B6B22BFDEA800C08FD8 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		658C9B6D22BFDEA900C08FD8 /* CustomMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMessageCell.swift; sourceTree = "<group>"; };
 		658C9B7222BFE79000C08FD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		658C9B7522C00F2A00C08FD8 /* helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
 		E3904420DF6A74C57F6D255A /* Pods-FireChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireChat.debug.xcconfig"; path = "Target Support Files/Pods-FireChat/Pods-FireChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +64,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6577154D22C159DC00615580 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6577154E22C159E800615580 /* helpers.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		658C9B3822BFD94800C08FD8 = {
 			isa = PBXGroup;
 			children = (
@@ -85,7 +93,7 @@
 		658C9B4322BFD94800C08FD8 /* FireChat */ = {
 			isa = PBXGroup;
 			children = (
-				658C9B7422C00F0200C08FD8 /* Helpers */,
+				6577154D22C159DC00615580 /* Utils */,
 				658C9B6822BFDE3F00C08FD8 /* Supporting Files */,
 				658C9B5922BFDCD500C08FD8 /* Controller */,
 				658C9B5822BFDCD200C08FD8 /* View */,
@@ -141,15 +149,6 @@
 				658C9B6B22BFDEA800C08FD8 /* MessageCell.xib */,
 			);
 			path = "Custom Cell";
-			sourceTree = "<group>";
-		};
-		658C9B7422C00F0200C08FD8 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				658C9B7522C00F2A00C08FD8 /* helper.swift */,
-			);
-			name = Helpers;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		68ADA1BC45BB2CA5BF43589E /* Pods */ = {
@@ -281,11 +280,11 @@
 				658C9B7022BFDEA900C08FD8 /* CustomMessageCell.swift in Sources */,
 				658C9B6122BFDD7700C08FD8 /* LogInViewController.swift in Sources */,
 				658C9B5B22BFDD3700C08FD8 /* Message.swift in Sources */,
+				6577154F22C159E800615580 /* helpers.swift in Sources */,
 				658C9B6522BFDD7700C08FD8 /* ChatViewController.swift in Sources */,
 				658C9B6322BFDD7700C08FD8 /* RegisterViewController.swift in Sources */,
 				658C9B4522BFD94800C08FD8 /* AppDelegate.swift in Sources */,
 				658C9B6422BFDD7700C08FD8 /* WelcomeViewController.swift in Sources */,
-				658C9B7622C00F2A00C08FD8 /* helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
