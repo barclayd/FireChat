@@ -11,6 +11,7 @@ import Firebase
 
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
+    var messageArray: [Message] = [Message]()
     
     @IBOutlet var heightConstraint: NSLayoutConstraint!
     @IBOutlet var sendButton: UIButton!
@@ -34,10 +35,30 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         messageTableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "customMessageCell")
         // configure table view
         configureTableView()
+        // retrieve and listen for messages
+        retrieveMessages()
     }
 
     @IBAction func sendPressed(_ sender: AnyObject) {
         
+        messageTextfield.endEditing(true)
+        toggleMessageElementState(state: false)
+        
+        let messagesDB = Database.database().reference().child("messages")
+        let messageDict = ["sender": Auth.auth().currentUser?.email, "message": messageTextfield.text ]
+        
+        messagesDB.childByAutoId().setValue(messageDict) {
+            (error, ref) in
+            if error != nil {
+                print (error)
+            } else {
+                print("Message saved!")
+                self.toggleMessageElementState(state: true)
+                self.messageTextfield.text = ""
+                
+            }
+            
+        }
         
     }
     
@@ -92,6 +113,25 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @objc func tableViewTapped() {
         messageTextfield.endEditing(true)
+    }
+    
+    func toggleMessageElementState(state: Bool) {
+        messageTextfield.isEnabled = state
+        sendButton.isEnabled = state
+    }
+    
+    func retrieveMessages() {
+        let messageDB = Database.database().reference().child("messages")
+        messageDB.observe(.childAdded) { (snapshot) in
+            let snapshotValue = snapshot.value as! Dictionary<String, String>
+            
+            let text = snapshotValue["message"]!
+            
+            let sender = snapshotValue["sender"]!
+            
+            print(text, sender)
+            
+        }
     }
     
 
