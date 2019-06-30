@@ -1,9 +1,9 @@
 //
 //  CustomMessageCell.swift
-//  Flash Chat
+//  Fire Chat
 //
-//  Created by Angela Yu on 30/08/2015.
-//  Copyright (c) 2015 London App Brewery. All rights reserved.
+//  Created by Daniel Barclay on 30/06/2019.
+//  Copyright (c) Daniel Barclay . All rights reserved.
 //
 
 import UIKit

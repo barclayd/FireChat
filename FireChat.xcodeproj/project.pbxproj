@@ -20,6 +20,8 @@
 		658C9B6E22BFDEA900C08FD8 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658C9B6B22BFDEA800C08FD8 /* MessageCell.xib */; };
 		658C9B7022BFDEA900C08FD8 /* CustomMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658C9B6D22BFDEA900C08FD8 /* CustomMessageCell.swift */; };
 		658C9B7322BFE79100C08FD8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 658C9B7222BFE79000C08FD8 /* GoogleService-Info.plist */; };
+		65A2B52422C8D5CE0009A533 /* NonUserMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A2B52222C8D5CE0009A533 /* NonUserMessageCell.swift */; };
+		65A2B52522C8D5CE0009A533 /* NonUserMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65A2B52322C8D5CE0009A533 /* NonUserMessageCell.xib */; };
 		EE2F36BF464D0035CA83A8E2 /* Pods_FireChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4814EA88B0CE9C2F9DA94653 /* Pods_FireChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		658C9B6B22BFDEA800C08FD8 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		658C9B6D22BFDEA900C08FD8 /* CustomMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMessageCell.swift; sourceTree = "<group>"; };
 		658C9B7222BFE79000C08FD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		65A2B52222C8D5CE0009A533 /* NonUserMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonUserMessageCell.swift; sourceTree = "<group>"; };
+		65A2B52322C8D5CE0009A533 /* NonUserMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NonUserMessageCell.xib; sourceTree = "<group>"; };
 		E3904420DF6A74C57F6D255A /* Pods-FireChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireChat.debug.xcconfig"; path = "Target Support Files/Pods-FireChat/Pods-FireChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +151,8 @@
 			children = (
 				658C9B6D22BFDEA900C08FD8 /* CustomMessageCell.swift */,
 				658C9B6B22BFDEA800C08FD8 /* MessageCell.xib */,
+				65A2B52222C8D5CE0009A533 /* NonUserMessageCell.swift */,
+				65A2B52322C8D5CE0009A533 /* NonUserMessageCell.xib */,
 			);
 			path = "Custom Cell";
 			sourceTree = "<group>";
@@ -220,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65A2B52522C8D5CE0009A533 /* NonUserMessageCell.xib in Resources */,
 				658C9B6722BFDE3A00C08FD8 /* Main.storyboard in Resources */,
 				658C9B6E22BFDEA900C08FD8 /* MessageCell.xib in Resources */,
 				658C9B7322BFE79100C08FD8 /* GoogleService-Info.plist in Resources */,
@@ -283,6 +290,7 @@
 				6577154F22C159E800615580 /* helpers.swift in Sources */,
 				658C9B6522BFDD7700C08FD8 /* ChatViewController.swift in Sources */,
 				658C9B6322BFDD7700C08FD8 /* RegisterViewController.swift in Sources */,
+				65A2B52422C8D5CE0009A533 /* NonUserMessageCell.swift in Sources */,
 				658C9B4522BFD94800C08FD8 /* AppDelegate.swift in Sources */,
 				658C9B6422BFDD7700C08FD8 /* WelcomeViewController.swift in Sources */,
 			);

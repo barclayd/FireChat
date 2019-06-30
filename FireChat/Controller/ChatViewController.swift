@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import ChameleonFramework
+
 
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
@@ -18,7 +20,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var messageTextfield: UITextField!
     @IBOutlet var messageTableView: UITableView!
     
-    
+    //TODO: Change message orientation and bubble colour based on user who sent message
+    //TODO: Change icon picture based on user who signed up gender
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +34,15 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
         messageTableView.addGestureRecognizer(tapGesture)
         
-        // register custom cell
+        // register custom cells
         messageTableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "customMessageCell")
+        messageTableView.register(UINib(nibName: "NonUserMessageCell", bundle: nil), forCellReuseIdentifier: "nonUserMessageCell")
         // configure table view
         configureTableView()
         // retrieve and listen for messages
         retrieveMessages()
+        
+        messageTableView.separatorStyle = .none
     }
 
     @IBAction func sendPressed(_ sender: AnyObject) {
@@ -80,17 +86,28 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customMessageCell", for: indexPath) as! CustomMessageCell
-        
-        if messageArray.count > 0 {
+        if messageArray[indexPath.row].sender == Auth.auth().currentUser?.email {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "customMessageCell", for: indexPath) as! CustomMessageCell
+            
             cell.messageBody.text = messageArray[indexPath.row].text
             cell.senderUsername.text = messageArray[indexPath.row].sender
             cell.avatarImageView.image = UIImage(named: "male")
-        }
-    
-        
-        return cell
-        
+            cell.messageBackground.backgroundColor = UIColor.flatWatermelon()
+
+            return cell
+                
+            } else {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "nonUserMessageCell", for: indexPath) as! NonUserMessageCell
+            
+            cell.message.text = messageArray[indexPath.row].text
+            cell.sender.text = messageArray[indexPath.row].sender
+            cell.avatar.image = UIImage(named: "male")
+            cell.messageContainer.backgroundColor = UIColor.flatPowderBlue()
+            cell.avatar.image = UIImage(named: "female")
+            
+            return cell
+            }
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -144,6 +161,5 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-
 
 }
